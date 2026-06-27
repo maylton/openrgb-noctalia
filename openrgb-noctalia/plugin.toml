@@ -1,0 +1,139 @@
+id           = "maylton/openrgb-noctalia"
+name         = "OpenRGB Noctalia"
+version      = "0.1.0"
+min_noctalia = "5.0.0"
+author       = "Maylton Fernandes"
+license      = "MIT"
+deprecated   = false
+icon         = "palette"
+description  = "Synchronizes OpenRGB devices with Noctalia, Album Aura and Nocky colors."
+tags         = ["openrgb", "rgb", "theme", "album-aura", "nocky"]
+dependencies = ["openrgb", "python3"]
+
+[[setting]]
+key             = "enabled"
+type            = "bool"
+label_key       = "settings.enabled.label"
+description_key = "settings.enabled.description"
+default         = true
+
+[[setting]]
+key             = "follow_album_aura"
+type            = "bool"
+label_key       = "settings.follow_album_aura.label"
+description_key = "settings.follow_album_aura.description"
+default         = true
+
+[[setting]]
+key             = "follow_nocky"
+type            = "bool"
+label_key       = "settings.follow_nocky.label"
+description_key = "settings.follow_nocky.description"
+default         = true
+
+[[setting]]
+key             = "apply_on_startup"
+type            = "bool"
+label_key       = "settings.apply_on_startup.label"
+description_key = "settings.apply_on_startup.description"
+default         = true
+
+[[setting]]
+key             = "openrgb_mode"
+type            = "select"
+label_key       = "settings.openrgb_mode.label"
+description_key = "settings.openrgb_mode.description"
+default         = "direct"
+options = [
+  { value = "direct", label_key = "settings.openrgb_mode.direct" },
+  { value = "static", label_key = "settings.openrgb_mode.static" },
+]
+
+[[setting]]
+key             = "use_sdk_server"
+type            = "bool"
+label_key       = "settings.use_sdk_server.label"
+description_key = "settings.use_sdk_server.description"
+default         = false
+advanced        = true
+
+[[setting]]
+key             = "pastel_correction"
+type            = "bool"
+label_key       = "settings.pastel_correction.label"
+description_key = "settings.pastel_correction.description"
+default         = true
+
+[[setting]]
+key             = "pastel_saturation_threshold"
+type            = "double"
+label_key       = "settings.pastel_saturation_threshold.label"
+description_key = "settings.pastel_saturation_threshold.description"
+default         = 0.45
+min             = 0.0
+max             = 1.0
+advanced        = true
+visible_when    = { key = "pastel_correction", values = ["true"] }
+
+[[setting]]
+key             = "pastel_brightness_threshold"
+type            = "double"
+label_key       = "settings.pastel_brightness_threshold.label"
+description_key = "settings.pastel_brightness_threshold.description"
+default         = 0.85
+min             = 0.0
+max             = 1.0
+advanced        = true
+visible_when    = { key = "pastel_correction", values = ["true"] }
+
+[[setting]]
+key             = "pastel_target_saturation"
+type            = "double"
+label_key       = "settings.pastel_target_saturation.label"
+description_key = "settings.pastel_target_saturation.description"
+default         = 0.65
+min             = 0.0
+max             = 1.0
+advanced        = true
+visible_when    = { key = "pastel_correction", values = ["true"] }
+
+[[setting]]
+key             = "pastel_target_brightness"
+type            = "double"
+label_key       = "settings.pastel_target_brightness.label"
+description_key = "settings.pastel_target_brightness.description"
+default         = 0.85
+min             = 0.0
+max             = 1.0
+advanced        = true
+visible_when    = { key = "pastel_correction", values = ["true"] }
+
+[[setting]]
+key             = "notifications"
+type            = "select"
+label_key       = "settings.notifications.label"
+description_key = "settings.notifications.description"
+default         = "errors"
+options = [
+  { value = "off", label_key = "settings.notifications.off" },
+  { value = "errors", label_key = "settings.notifications.errors" },
+  { value = "changes", label_key = "settings.notifications.changes" },
+]
+
+[[setting]]
+key             = "poll_interval_ms"
+type            = "int"
+label_key       = "settings.poll_interval_ms.label"
+description_key = "settings.poll_interval_ms.description"
+default         = 1000
+min             = 500
+max             = 10000
+advanced        = true
+
+[[service]]
+id    = "sync"
+entry = "service.luau"
+
+[[shortcut]]
+id    = "toggle"
+entry = "shortcut.luau"
