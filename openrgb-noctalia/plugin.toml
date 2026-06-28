@@ -7,7 +7,7 @@ license      = "MIT"
 deprecated   = false
 icon         = "palette"
 description  = "Synchronizes OpenRGB devices with Noctalia, Album Aura and Nocky colors."
-tags         = ["openrgb", "rgb", "theme", "palette", "album-aura", "nocky"]
+tags         = ["openrgb", "rgb", "theme", "album-aura", "nocky"]
 dependencies = ["openrgb", "python3"]
 
 [[setting]]
