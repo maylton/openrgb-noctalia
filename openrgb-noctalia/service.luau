@@ -1,4 +1,4 @@
--- OpenRGB Noctalia v0.1.0
+-- OpenRGB Noctalia v0.1.1
 -- Headless Noctalia v5 service.
 --
 -- The service installs a tiny Noctalia theme bridge in the user's config.
@@ -22,7 +22,7 @@ local function trim(value)
   if value == nil then
     return ""
   end
-  return string.trim(tostring(value))
+  return (tostring(value):gsub("^%s+", ""):gsub("%s+$", ""))
 end
 
 local function shellQuote(value)
