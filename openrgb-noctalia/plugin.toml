@@ -1,13 +1,13 @@
 id           = "maylton/openrgb-noctalia"
 name         = "OpenRGB Noctalia"
-version      = "0.1.0"
+version      = "0.1.1"
 min_noctalia = "5.0.0"
 author       = "Maylton Fernandes"
 license      = "MIT"
 deprecated   = false
 icon         = "palette"
 description  = "Synchronizes OpenRGB devices with Noctalia, Album Aura and Nocky colors."
-tags         = ["openrgb", "rgb", "theme", "album-aura", "nocky"]
+tags         = ["openrgb", "rgb", "theme", "palette", "album-aura", "nocky"]
 dependencies = ["openrgb", "python3"]
 
 [[setting]]
